@@ -78,13 +78,14 @@ const getfourPillar = (ts: number = Date.now()): fourPillars => {
     // 年柱月柱要对比的基准干支年
     const year = new Date(ts).getFullYear()
     const solarTermYear = new Date(solarTerm[0]).getFullYear()
+    const yearToSolarTermYear = year - solarTermYear
     // 年柱
     let yearDiff = new Date(ts).getFullYear() - jiaziYear
-    const [, yearSeperator] = getCurrentSolarTerm(solarTerm, year - solarTermYear)
+    const [, yearSeperator] = getCurrentSolarTerm(solarTerm, yearToSolarTermYear)
     if (ts < yearSeperator) yearDiff--
     const yearPillar = [HeavenlyStems[getRemainder(yearDiff, 10)], EarthlyBranchs[getRemainder(yearDiff, 12)]]
     // 月柱
-    const monthOrder = solarTermOffset + getMonthOrder(ts, solarTerm, year - solarTermYear) + (year - solarTermYear) * 12
+    const monthOrder = solarTermOffset + getMonthOrder(ts, solarTerm, yearToSolarTermYear) + (yearToSolarTermYear) * 12
     const monthPillar = [HeavenlyStems[getRemainder(monthOrder, 10)], EarthlyBranchs[getRemainder(monthOrder, 12)]]
     // 日柱
     const dayDiff = Math.floor((ts - jiaziDay) / 86400000)
