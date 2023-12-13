@@ -1,0 +1,19 @@
+name: fdeploy
+on:
+  push:
+    branches:
+      - main
+jobs: 
+  fetchandbuild:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: "18.x"
+        - run: yarn
+        - run: yarn prod
+        - uses: JamesIves/github-pages-deploy-action@4.1.7
+          with:
+            branch: page
+            folder: dist
