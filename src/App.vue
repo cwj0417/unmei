@@ -24,4 +24,7 @@ export default defineComponent({
   margin-top: 20px;
   font-size: 30px;
 }
+html {
+  background: #ccc;
+}
 </style>

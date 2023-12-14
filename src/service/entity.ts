@@ -17,6 +17,7 @@ class Element {
     restrict: simpleElement
     restricted: simpleElement
     generateby: simpleElement
+    十神: any // todo: type
     constructor(type: elementType) {
         this.type = elementRelation[type].type
         this.name = elementRelation[type].name
@@ -25,6 +26,13 @@ class Element {
         this.restrict = generateElement(type).generate.generate
         this.restricted = generateElement(type).generate.generate.generate
         this.generateby = generateElement(type).generate.generate.generate.generate
+        this.十神 = () => ({
+            [this.generate.type]: ['食神', '伤官'],
+            [this.restrict.type]: ['偏财', '正财'],
+            [this.restricted.type]: ['七杀', '正官'],
+            [this.generateby.type]: ['偏印', '正印'],
+            [this.self.type]: ['比肩', '劫财']
+        })
     }
 }
 
