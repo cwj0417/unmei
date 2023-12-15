@@ -68,7 +68,7 @@ export const EarthlyBranchs = [
     new EarthlyBranch('未', [HeavenlyStems[5], HeavenlyStems[1], HeavenlyStems[3]]),
     new EarthlyBranch('申', [HeavenlyStems[6], HeavenlyStems[8], HeavenlyStems[4]]),
     new EarthlyBranch('酉', [HeavenlyStems[7]]),
-    new EarthlyBranch('戌', [HeavenlyStems[4], HeavenlyStems[3], HeavenlyStems[7]]),
+    new EarthlyBranch('戌', [HeavenlyStems[4], HeavenlyStems[7], HeavenlyStems[3]]),
     new EarthlyBranch('亥', [HeavenlyStems[8], HeavenlyStems[0]]),
 ]
 
