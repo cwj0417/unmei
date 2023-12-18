@@ -36,7 +36,7 @@ input {
   border: none;
   font-size: 20px;
   background: transparent;
-  width: 150px;
+  width: 200px;
   color: #e0e4e8;
   text-align: center;
 }
@@ -46,7 +46,7 @@ input:focus {
 }
 
 td {
-  width: 150px;
+  width: 200px;
 }
 
 .text-sm {

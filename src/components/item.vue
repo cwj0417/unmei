@@ -1,5 +1,5 @@
 <template>
-    <div style="border: 2px solid white; border-left: none; border-right: none; width: 604px; margin: 15px auto">
+    <div style="border: 2px solid white; border-left: none; border-right: none; width: 700px; margin: 15px auto">
         <input :value="birthday.year" placeholder="年份, 如: 2023" autofocus @input="yearChange"
             :style="{ border: valid(birthday.year) ? 'none' : '1px solid red' }" />
         <input :value="birthday.monthday" placeholder="月日, 如: 1107" ref="input2Ref" @input="mdChange"
@@ -26,51 +26,51 @@
                 </tr>
                 <tr class="text-lg">
                     <td>
-                        <HeavenlyStemIcon :src="bazi[0][0]" />
+                        <HeavenlyStemIcon :size="60" :src="bazi[0][0]" />
                     </td>
                     <td>
-                        <HeavenlyStemIcon :src="bazi[1][0]" />
+                        <HeavenlyStemIcon :size="60" :src="bazi[1][0]" />
                     </td>
                     <td>
-                        <HeavenlyStemIcon :src="bazi[2][0]" />
+                        <HeavenlyStemIcon :size="60" :src="bazi[2][0]" />
                     </td>
                     <td>
-                        <HeavenlyStemIcon :src="bazi[3][0]" />
+                        <HeavenlyStemIcon :size="60" :src="bazi[3][0]" />
                     </td>
                 </tr>
                 <tr class="text-lg">
                     <td>
-                        <EarthlyBranchIcon :showHs="false" :src="bazi[0][1]" />
+                        <EarthlyBranchIcon :size="60" :showHs="false" :src="bazi[0][1]" />
                     </td>
                     <td>
-                        <EarthlyBranchIcon :showHs="false" :src="bazi[1][1]" />
+                        <EarthlyBranchIcon :size="60" :showHs="false" :src="bazi[1][1]" />
                     </td>
                     <td>
-                        <EarthlyBranchIcon :showHs="false" :src="bazi[2][1]" />
+                        <EarthlyBranchIcon :size="60" :showHs="false" :src="bazi[2][1]" />
                     </td>
                     <td>
-                        <EarthlyBranchIcon :showHs="false" :src="bazi[3][1]" />
+                        <EarthlyBranchIcon :size="60" :showHs="false" :src="bazi[3][1]" />
                     </td>
                 </tr>
                 <tr class="text-sm">
                     <td>
                         <div v-for="hs of bazi[0][1].藏干">
-                            <HeavenlyStemIcon :src="hs" /> {{ getSelfRelation(hs) }}
+                            <HeavenlyStemIcon :size="35" :src="hs" /> {{ getSelfRelation(hs) }}
                         </div>
                     </td>
                     <td>
                         <div v-for="hs of bazi[1][1].藏干">
-                            <HeavenlyStemIcon :src="hs" /> {{ getSelfRelation(hs) }}
+                            <HeavenlyStemIcon :size="35" :src="hs" /> {{ getSelfRelation(hs) }}
                         </div>
                     </td>
                     <td>
                         <div v-for="hs of bazi[2][1].藏干">
-                            <HeavenlyStemIcon :src="hs" /> {{ getSelfRelation(hs) }}
+                            <HeavenlyStemIcon :size="35" :src="hs" /> {{ getSelfRelation(hs) }}
                         </div>
                     </td>
                     <td>
                         <div v-for="hs of bazi[3][1].藏干">
-                            <HeavenlyStemIcon :src="hs" /> {{ getSelfRelation(hs) }}
+                            <HeavenlyStemIcon :size="35" :src="hs" /> {{ getSelfRelation(hs) }}
                         </div>
                     </td>
                 </tr>
