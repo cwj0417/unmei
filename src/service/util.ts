@@ -4,46 +4,52 @@ export const getRemainder = (n1: number, n2: number) => n1 % n2 >= 0 ? n1 % n2 :
 export const getRenderStyle = (element: any, gender: any) => ({ // todo: type
     wood: {
         yin: {
-            color: 'rgb(77, 245, 35)',
-            textDecoration: 'underline'
+            color: '#689C76',
+            fontWeight: 300,
         },
         yang: {
-            color: 'rgb(77, 245, 35)',
+            color: '#689C76',
+            fontWeight: 700,
         },
     },
     fire: {
         yin: {
-            color: 'rgb(239, 79, 47)',
-            textDecoration: 'underline'
+            color: '#BE3E38',
+            fontWeight: 300,
         },
         yang: {
-            color: 'rgb(239, 79, 47)'
+            color: '#BE3E38',
+            fontWeight: 700,
         },
     },
     earth: {
         yin: {
-            color: 'rgb(225, 171, 43)'
+            color: '#9D6621',
+            fontWeight: 300,
         },
         yang: {
-            color: 'rgb(225, 171, 43)'
+            color: '#9D6621',
+            fontWeight: 700,
         },
     },
     metal: {
         yin: {
-            color: 'rgb(236, 252, 12)',
-            textDecoration: 'underline'
+            color: '#F6C543',
+            fontWeight: 300,
         },
         yang: {
-            color: 'rgb(236, 252, 12)'
+            color: '#F6C543',
+            fontWeight: 700,
         },
     },
     water: {
         yin: {
-            color: 'rgb(35, 161, 239)',
-            textDecoration: 'underline'
+            color: '#67A1F8',
+            fontWeight: 300,
         },
         yang: {
-            color: 'rgb(35, 161, 239)'
+            color: '#67A1F8',
+            fontWeight: 700,
         },
     },
 } as any)[element]![gender]

@@ -1,5 +1,5 @@
 <template>
-  <Main/>
+  <Main />
 </template>
 
 <script lang="ts">
@@ -20,11 +20,40 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #aab0b5;
   margin-top: 20px;
   font-size: 30px;
+  font-weight: 500;
 }
+
 html {
-  background: #ccc;
+  background: #222;
+}
+
+input {
+  padding: 5px;
+  margin: 5px;
+  border: none;
+  font-size: 20px;
+  background: transparent;
+  width: 150px;
+  color: #e0e4e8;
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+}
+
+td {
+  width: 150px;
+}
+
+.text-sm {
+  font-size: 20px;
+}
+
+.text-lg {
+  font-size: 40px;
 }
 </style>
