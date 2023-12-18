@@ -1,16 +1,16 @@
 // import { getfourPillar } from './entity'
-// import { fourPillars } from './interface'
+// import { 四柱 } from './interface'
 
-// const format = (diagram: fourPillars) => {
+// const format = (diagram: 四柱) => {
 //     diagram.forEach(item => {
 //         console.log('')
 //         item.forEach((i) => {
 //             // console.log(i)
 //             // console.log(i.name)
-//             if ('containingHeavenlyStems' in i) {
-//                 console.log(i.containingHeavenlyStems.map(hs => hs.element.name))
+//             if ('藏干' in i) {
+//                 console.log(i.藏干.map(hs => hs.五行.name))
 //             } else {
-//                 console.log(i.element.name)
+//                 console.log(i.五行.name)
 //             }
 //         })
 //     })

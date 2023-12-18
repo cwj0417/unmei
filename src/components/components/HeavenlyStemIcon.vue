@@ -1,5 +1,5 @@
 <template>
-<span :style="getRenderStyle(src?.element?.type,src?.gender)">{{ src?.name }}</span>
+<span :style="getRenderStyle(src?.五行?.type,src?.阴阳)">{{ src?.name }}</span>
 </template>
 <script setup>
 import { getRenderStyle } from '../../service/util';

@@ -1,4 +1,4 @@
-import { elementType } from './interface'
+import { 五行种类 } from './interface'
 
 export const solarTerm = [ // 以19年来粗略计算万年历的节气.
     new Date(new Date(new Date().setFullYear(2019)).setMonth(0, 5)).setHours(23, 38, 52, 1), // 小寒 2018的小寒
@@ -23,35 +23,35 @@ export const jiaziYear = 1144
 export const jiaziDay = new Date(new Date(new Date().setFullYear(2021)).setMonth(2, 16)).setHours(23, 0, 0, 1)
 
 export const elementRelation: {
-    [key in elementType]: {
-        type: elementType,
-        generateType: elementType,
+    [key in 五行种类]: {
+        type: 五行种类,
+        generateType: 五行种类,
         name: string,
     }
 } = {
-    wood: {
-        type: 'wood',
-        generateType: 'fire',
+    木: {
+        type: '木',
+        generateType: '火',
         name: '木',
     },
-    fire: {
-        type: 'fire',
-        generateType: 'earth',
+    火: {
+        type: '火',
+        generateType: '土',
         name: '火',
     },
-    earth: {
-        type: 'earth',
-        generateType: 'metal',
+    土: {
+        type: '土',
+        generateType: '金',
         name: '土',
     },
-    metal: {
-        type: 'metal',
-        generateType: 'water',
+    金: {
+        type: '金',
+        generateType: '水',
         name: '金',
     },
-    water: {
-        type: 'water',
-        generateType: 'wood',
+    水: {
+        type: '水',
+        generateType: '木',
         name: '水',
     },
 }

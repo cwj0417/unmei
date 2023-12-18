@@ -1,26 +1,24 @@
-import { elementType, simpleElement, yinyangType, fourPillars } from './interface'
+import { 五行种类, 五行对象, 阴阳, 四柱 } from './interface'
 import { getRemainder } from './util'
 import { elementRelation, jiaziYear, solarDayOffset, solarTerm, jiaziDay, stemBranchTimeRelation, solarTermOffset } from './relation'
 
-const generateElement = (type: elementType): simpleElement => ({
+const generateElement = (type: 五行种类): 五行对象 => ({
     ...elementRelation[type],
     get generate() {
         return generateElement(elementRelation[type].generateType)
     }
 })
 
-class Element {
+class 五行 {
     type: string
-    name: string
-    self: simpleElement
-    generate: simpleElement
-    restrict: simpleElement
-    restricted: simpleElement
-    generateby: simpleElement
+    self: 五行对象
+    generate: 五行对象
+    restrict: 五行对象
+    restricted: 五行对象
+    generateby: 五行对象
     十神: any // todo: type
-    constructor(type: elementType) {
+    constructor(type: 五行种类) {
         this.type = elementRelation[type].type
-        this.name = elementRelation[type].name
         this.self = generateElement(type)
         this.generate = generateElement(type).generate
         this.restrict = generateElement(type).generate.generate
@@ -36,40 +34,40 @@ class Element {
     }
 }
 
-export class HeavenlyStem {
-    constructor(public name: string, public element: Element, public gender: yinyangType) { }
+export class 天干 {
+    constructor(public name: string, public 五行: 五行, public 阴阳: 阴阳) { }
 }
 
-export class EarthlyBranch {
-    constructor(public name: string, public containingHeavenlyStems: HeavenlyStem[]) { }
+export class 地支 {
+    constructor(public name: string, public 藏干: 天干[]) { }
 }
 
-export const HeavenlyStems = [
-    new HeavenlyStem('甲', new Element('wood'), 'yang'),
-    new HeavenlyStem('乙', new Element('wood'), 'yin'),
-    new HeavenlyStem('丙', new Element('fire'), 'yang'),
-    new HeavenlyStem('丁', new Element('fire'), 'yin'),
-    new HeavenlyStem('戊', new Element('earth'), 'yang'),
-    new HeavenlyStem('己', new Element('earth'), 'yin'),
-    new HeavenlyStem('庚', new Element('metal'), 'yang'),
-    new HeavenlyStem('辛', new Element('metal'), 'yin'),
-    new HeavenlyStem('壬', new Element('water'), 'yang'),
-    new HeavenlyStem('葵', new Element('water'), 'yin'),
+export const 所有天干 = [
+    new 天干('甲', new 五行('木'), '阳'),
+    new 天干('乙', new 五行('木'), '阴'),
+    new 天干('丙', new 五行('火'), '阳'),
+    new 天干('丁', new 五行('火'), '阴'),
+    new 天干('戊', new 五行('土'), '阳'),
+    new 天干('己', new 五行('土'), '阴'),
+    new 天干('庚', new 五行('金'), '阳'),
+    new 天干('辛', new 五行('金'), '阴'),
+    new 天干('壬', new 五行('水'), '阳'),
+    new 天干('葵', new 五行('水'), '阴'),
 ]
 
-export const EarthlyBranchs = [
-    new EarthlyBranch('子', [HeavenlyStems[9]]),
-    new EarthlyBranch('丑', [HeavenlyStems[5], HeavenlyStems[7], HeavenlyStems[9]]),
-    new EarthlyBranch('寅', [HeavenlyStems[0], HeavenlyStems[2], HeavenlyStems[4]]),
-    new EarthlyBranch('卯', [HeavenlyStems[1]]),
-    new EarthlyBranch('辰', [HeavenlyStems[4], HeavenlyStems[9], HeavenlyStems[1]]),
-    new EarthlyBranch('巳', [HeavenlyStems[2], HeavenlyStems[6], HeavenlyStems[4]]),
-    new EarthlyBranch('午', [HeavenlyStems[3], HeavenlyStems[5]]),
-    new EarthlyBranch('未', [HeavenlyStems[5], HeavenlyStems[1], HeavenlyStems[3]]),
-    new EarthlyBranch('申', [HeavenlyStems[6], HeavenlyStems[8], HeavenlyStems[4]]),
-    new EarthlyBranch('酉', [HeavenlyStems[7]]),
-    new EarthlyBranch('戌', [HeavenlyStems[4], HeavenlyStems[7], HeavenlyStems[3]]),
-    new EarthlyBranch('亥', [HeavenlyStems[8], HeavenlyStems[0]]),
+export const 所有地支 = [
+    new 地支('子', [所有天干[9]]),
+    new 地支('丑', [所有天干[5], 所有天干[7], 所有天干[9]]),
+    new 地支('寅', [所有天干[0], 所有天干[2], 所有天干[4]]),
+    new 地支('卯', [所有天干[1]]),
+    new 地支('辰', [所有天干[4], 所有天干[9], 所有天干[1]]),
+    new 地支('巳', [所有天干[2], 所有天干[6], 所有天干[4]]),
+    new 地支('午', [所有天干[3], 所有天干[5]]),
+    new 地支('未', [所有天干[5], 所有天干[1], 所有天干[3]]),
+    new 地支('申', [所有天干[6], 所有天干[8], 所有天干[4]]),
+    new 地支('酉', [所有天干[7]]),
+    new 地支('戌', [所有天干[4], 所有天干[7], 所有天干[3]]),
+    new 地支('亥', [所有天干[8], 所有天干[0]]),
 ]
 
 const getCurrentSolarTerm = (solarTermAnchor: number[], yearDiffCount: number) => {
@@ -82,7 +80,7 @@ const getMonthOrder = (currentTs: number, solarTermAnchor: number[], yearDiffCou
     return currentSolarTerm.reduce((pre, cur) => pre === -1 ? (cur > currentTs ? currentSolarTerm.indexOf(cur) : -1) : pre, -1)
 }
 
-const getfourPillar = (ts: number = Date.now()): fourPillars => {
+const getfourPillar = (ts: number = Date.now()): 四柱 => {
     // 年柱月柱要对比的基准干支年
     const year = new Date(ts).getFullYear()
     const solarTermYear = new Date(solarTerm[0]).getFullYear()
@@ -91,18 +89,18 @@ const getfourPillar = (ts: number = Date.now()): fourPillars => {
     let yearDiff = new Date(ts).getFullYear() - jiaziYear
     const [, yearSeperator] = getCurrentSolarTerm(solarTerm, yearToSolarTermYear)
     if (ts < yearSeperator) yearDiff--
-    const yearPillar = [HeavenlyStems[getRemainder(yearDiff, 10)], EarthlyBranchs[getRemainder(yearDiff, 12)]]
+    const yearPillar = [所有天干[getRemainder(yearDiff, 10)], 所有地支[getRemainder(yearDiff, 12)]]
     // 月柱
     const monthOrder = solarTermOffset + getMonthOrder(ts, solarTerm, yearToSolarTermYear) + (yearToSolarTermYear) * 12
-    const monthPillar = [HeavenlyStems[getRemainder(monthOrder, 10)], EarthlyBranchs[getRemainder(monthOrder, 12)]]
+    const monthPillar = [所有天干[getRemainder(monthOrder, 10)], 所有地支[getRemainder(monthOrder, 12)]]
     // 日柱
     const dayDiff = Math.floor((ts - jiaziDay) / 86400000)
     let heavenlyStemOrder = getRemainder(dayDiff, 10)
-    const dayPillar = [HeavenlyStems[heavenlyStemOrder], EarthlyBranchs[getRemainder(dayDiff, 12)]]
+    const dayPillar = [所有天干[heavenlyStemOrder], 所有地支[getRemainder(dayDiff, 12)]]
     // 时柱
     const time = stemBranchTimeRelation[new Date(ts).getHours()]
     const dayOrder = heavenlyStemOrder % 5
-    const timePillar = [HeavenlyStems[(dayOrder * 12 + time) % 10], EarthlyBranchs[time]]
+    const timePillar = [所有天干[(dayOrder * 12 + time) % 10], 所有地支[time]]
     return [yearPillar, monthPillar, dayPillar, timePillar]
 }
 

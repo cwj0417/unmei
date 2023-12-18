@@ -1,9 +1,5 @@
 <template>
-    <div style="border: 2px solid white;
-    border-left: none;
-    border-right: none;
-    width: 604px;
-    margin: 15px auto">
+    <div style="border: 2px solid white; border-left: none; border-right: none; width: 604px; margin: 15px auto">
         <input :value="birthday.year" placeholder="年份, 如: 2023" autofocus @input="yearChange"
             :style="{ border: valid(birthday.year) ? 'none' : '1px solid red' }" />
         <input :value="birthday.monthday" placeholder="月日, 如: 1107" ref="input2Ref" @input="mdChange"
@@ -58,22 +54,22 @@
                 </tr>
                 <tr class="text-sm">
                     <td>
-                        <div v-for="hs of bazi[0][1].containingHeavenlyStems">
+                        <div v-for="hs of bazi[0][1].藏干">
                             <HeavenlyStemIcon :src="hs" /> {{ getSelfRelation(hs) }}
                         </div>
                     </td>
                     <td>
-                        <div v-for="hs of bazi[1][1].containingHeavenlyStems">
+                        <div v-for="hs of bazi[1][1].藏干">
                             <HeavenlyStemIcon :src="hs" /> {{ getSelfRelation(hs) }}
                         </div>
                     </td>
                     <td>
-                        <div v-for="hs of bazi[2][1].containingHeavenlyStems">
+                        <div v-for="hs of bazi[2][1].藏干">
                             <HeavenlyStemIcon :src="hs" /> {{ getSelfRelation(hs) }}
                         </div>
                     </td>
                     <td>
-                        <div v-for="hs of bazi[3][1].containingHeavenlyStems">
+                        <div v-for="hs of bazi[3][1].藏干">
                             <HeavenlyStemIcon :src="hs" /> {{ getSelfRelation(hs) }}
                         </div>
                     </td>
@@ -94,16 +90,16 @@
 
         <!-- <div>
         {{ getSelfRelation(bazi[0][0]) }}
-        (<span v-for="hs of bazi[0][1].containingHeavenlyStems">{{ getSelfRelation(hs) }}</span>)
+        (<span v-for="hs of bazi[0][1].藏干">{{ getSelfRelation(hs) }}</span>)
   
         {{ getSelfRelation(bazi[1][0]) }}
-        (<span v-for="hs of bazi[1][1].containingHeavenlyStems">{{ getSelfRelation(hs) }}</span>)
+        (<span v-for="hs of bazi[1][1].藏干">{{ getSelfRelation(hs) }}</span>)
   
         {{ getSelfRelation(bazi[2][0]) }}
-        (<span v-for="hs of bazi[2][1].containingHeavenlyStems">{{ getSelfRelation(hs) }}</span>)
+        (<span v-for="hs of bazi[2][1].藏干">{{ getSelfRelation(hs) }}</span>)
   
         {{ getSelfRelation(bazi[3][0]) }}
-        (<span v-for="hs of bazi[3][1].containingHeavenlyStems">{{ getSelfRelation(hs) }}</span>)
+        (<span v-for="hs of bazi[3][1].藏干">{{ getSelfRelation(hs) }}</span>)
       </div> -->
 
     </div>
@@ -162,7 +158,6 @@ let check = () => {
     if (valid(birthday.year) && valid(birthday.monthday) && valid(birthday.hrminsec)) {
         localStorage.setItem('unmeicache' + props.order, Object.values(birthday).join(','))
         bazi.value = getfourPillar(new Date(`${birthday.year} ${birthday.monthday.slice(0, 2)} ${birthday.monthday.slice(2, 4)} ${birthday.hrminsec.slice(0, 2)}:${birthday.hrminsec.slice(2, 4)}`))
-        console.log(bazi.value)
     }
 }
 

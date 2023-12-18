@@ -11,7 +11,6 @@ const count = ref(1)
 
 onMounted(() => {
   count.value = localStorage.getItem('unmeicount') ? +localStorage.getItem('unmeicount') : 1
-  console.log(localStorage.getItem('unmeicount'))
 })
 
 const add = () => {
