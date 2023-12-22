@@ -1,6 +1,7 @@
 <template>
   <div style="margin-bottom: 20px;" @click="add">hi, there is unmei.</div>
   <Item v-for="i in count" :order="i" :key="i"/>
+  <div style="margin-bottom: 20px; margin-top: 20px;" @click="add">hi, there is unmei.</div>
 </template>
 
 <script setup>

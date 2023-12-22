@@ -15,6 +15,11 @@ export default defineComponent({
 </script>
 
 <style>
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -36,16 +41,16 @@ input {
   border: none;
   font-size: 20px;
   background: transparent;
-  width: 200px;
+  width: 100px;
   color: #e0e4e8;
-  text-align: center;
+  text-align: right;
 }
 
 input:focus {
   outline: none;
 }
 
-td {
+.w-item {
   width: 200px;
 }
 
