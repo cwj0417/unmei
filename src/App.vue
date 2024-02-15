@@ -55,7 +55,7 @@ input:focus {
 }
 
 .text-sm {
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .text-lg {
