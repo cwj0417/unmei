@@ -194,7 +194,7 @@ let changeGender = () => {
 let check = () => {
     if (valid(birthday.year, 4) && valid(birthday.month, 2) && valid(birthday.day, 2) && valid(birthday.hrminsec, 4)) {
         localStorage.setItem('unmeicache' + props.order, Object.values(birthday).join(','))
-        bazi.value = getfourPillar(new Date(`${birthday.year} ${birthday.month} ${birthday.day} ${birthday.hrminsec.slice(0, 2)}:${birthday.hrminsec.slice(2, 4)}`))
+        bazi.value = getfourPillar(new Date(`${birthday.year}-${birthday.month}-${birthday.day} ${birthday.hrminsec.slice(0, 2)}:${birthday.hrminsec.slice(2, 4)}`))
     }
 }
 
